@@ -9,7 +9,7 @@ import com.systechafrica.db.DatabaseHandler;
 public class DatabaseHandlerImpl implements DatabaseHandler {
 
     @Override
-    public Connection connection(String connectionUrl, String username, String password)
+    public Connection connect(String connectionUrl, String username, String password)
             throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         return DriverManager.getConnection(connectionUrl, username, password);

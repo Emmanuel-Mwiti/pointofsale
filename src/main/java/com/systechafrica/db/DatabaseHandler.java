@@ -4,6 +4,6 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 public interface DatabaseHandler {
-    Connection connection(String connectionUrl, String username, String password)
+    Connection connect(String connectionUrl, String username, String password)
             throws ClassNotFoundException, SQLException;
 }
