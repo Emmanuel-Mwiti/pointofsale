@@ -1,10 +1,6 @@
 package com.systechafrica;
 
-/**
- * Hello world!
- *
- */
-public class App 
+public class PointOfSaleApplication 
 {
     public static void main( String[] args )
     {
