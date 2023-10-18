@@ -1,6 +1,5 @@
 package com.systechafrica.service.impl;
 
-import com.systechafrica.db.DatabaseHandler;
 import com.systechafrica.exceptions.InsufficientAmountException;
 import com.systechafrica.exceptions.OrderNotFoundException;
 import com.systechafrica.model.Order;
@@ -207,7 +206,7 @@ public class PosServiceImpl implements PosService {
                 return true;
             }
             loginEntries++;
-            logger.info("user enetered wrong credentials!!!");
+            logger.info("user entered wrong credentials!!!");
             System.out.println();
         }
         return false;
