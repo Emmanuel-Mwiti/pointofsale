@@ -10,6 +10,7 @@ import com.systechafrica.service.PaymentService;
 import com.systechafrica.service.PosService;
 import com.systechafrica.util.Config;
 import com.systechafrica.util.InputSanitizer;
+
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
@@ -21,19 +22,17 @@ import java.util.logging.Logger;
 
 public class PosServiceImpl implements PosService {
 
-    private Logger logger;
-
-    private AuthenticationService authenticationService;
-    private PaymentService paymentService;
+    private final Logger logger;
+    private final AuthenticationService authenticationService;
+    private final PaymentService paymentService;
 
     Scanner scanner;
 
-    private Order order;
+    private final Order order;
 
     private double totalCost = 0.0;
-    private double change = 0.0;
 
-    private Locale locale = Locale.getDefault();
+    private final Locale locale = Locale.getDefault();
 
     public PosServiceImpl(AuthenticationService authenticationService, PaymentService paymentService, Logger logger) {
         scanner = new Scanner(System.in);
@@ -110,7 +109,7 @@ public class PosServiceImpl implements PosService {
     }
 
     private void makePayment() {
-        // ? calculate the order total
+//         ? calculate the order total
 
         List<Product> products = order.getProducts();
 
@@ -124,6 +123,7 @@ public class PosServiceImpl implements PosService {
         double amountFromUser = InputSanitizer.sanitizeStringToDouble(scanner.nextLine(), logger);
 
         // ? calculate the change
+        double change = 0.0;
         if (amountFromUser >= totalCost) {
             // amount is enough for payment
             change = amountFromUser - totalCost;
@@ -188,7 +188,7 @@ public class PosServiceImpl implements PosService {
         System.out.println();
         System.out.println("1. ADD ITEM");
         System.out.println("2. MAKE PAYMENT");
-        System.out.println("3. DISPLAY RECIEPT");
+        System.out.println("3. DISPLAY RECEIPT");
         System.out.println("4. QUIT");
         System.out.println();
     }
